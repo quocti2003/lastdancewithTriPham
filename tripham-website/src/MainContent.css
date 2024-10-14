@@ -1,0 +1,85 @@
+/* Đảm bảo vùng chứa chính của nội dung hoạt động bình thường */
+.main-content {
+  flex-grow: 1; /* Take up remaining space */
+  position: fixed; /* Fixed position to prevent shifting */
+  top: 0; /* Align to the top */
+  left: 0; /* Align to the left */
+  right: 0; /* Align to the right */
+  bottom: 0; /* Align to the bottom */
+  overflow-y: auto; /* Allow scrolling if content overflows */
+  transition: margin-left 0.3s ease;
+  padding: 1rem;
+}
+
+.main-content button {
+  margin-bottom: 1rem; /* Khoảng cách dưới cho nút mở sidebar */
+}
+
+.open-button img {
+  width: 24px; /* Kích thước của biểu tượng SVG */
+  height: 24px; /* Kích thước của biểu tượng SVG */
+  border-style: none;
+}
+
+.open-button {
+  background: none; /* Không có nền */
+  border: none; /* Không có đường viền */
+  cursor: pointer; /* Đổi con trỏ khi di chuột qua */
+}
+
+.main-content.shifted {
+  margin-left: 250px; /* Khoảng cách khi sidebar mở */
+}
+
+@media screen and (max-width: 768px) {
+  .main-content.shifted {
+    margin-left: 200px; /* Khoảng cách nhỏ hơn khi sidebar mở trên màn hình nhỏ */
+  }
+}
+
+/* Đảm bảo vùng chứa hình ảnh là responsive */
+.image-container {
+  display: flex; /* Sử dụng Flexbox để sắp xếp các hình ảnh */
+  flex-wrap: wrap; /* Cho phép các hình ảnh quay lại dòng mới khi không đủ chỗ */
+  gap: 16px; /* Khoảng cách giữa các khung hình */
+  margin-top: 20px; /* Khoảng cách trên cho khung chứa hình ảnh */
+}
+
+.image-card {
+  border: 1px solid #ccc; /* Đường viền cho khung hình ảnh */
+  border-radius: 4px; /* Bo góc cho khung hình ảnh */
+  padding: 10px; /* Padding cho khung hình ảnh */
+  width: calc(25% - 16px); /* Đặt chiều rộng cho khung hình ảnh (4 khung mỗi hàng) */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Bóng mờ cho khung hình ảnh */
+}
+
+.image {
+  width: 100%; /* Đặt chiều rộng hình ảnh là 100% */
+  height: auto; /* Chiều cao tự động để giữ tỉ lệ */
+}
+
+/* Giảm khoảng cách giữa các dòng thông tin */
+.image-info {
+  margin-top: 10px; /* Khoảng cách trên cho thông tin hình ảnh */
+  font-size: 14px; /* Giảm kích thước font để hiển thị đẹp hơn */
+  line-height: 0.8; /* Giảm khoảng cách giữa các dòng */
+}
+
+/* Responsive layout */
+@media screen and (max-width: 1024px) {
+  .image-card {
+    width: calc(33.33% - 16px); /* Ba khung mỗi hàng trên màn hình trung bình */
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .image-card {
+    width: calc(50% - 16px); /* Hai khung mỗi hàng trên màn hình nhỏ */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .image-card {
+    width: calc(100% - 16px); /* Một khung mỗi hàng trên màn hình rất nhỏ */
+  }
+}

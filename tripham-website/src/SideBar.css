@@ -1,0 +1,147 @@
+/* close-button */
+.close-button {
+  background: none; /* Không có nền */
+  border: none; /* Không có đường viền */
+  cursor: pointer; /* Đổi con trỏ khi di chuột qua */
+}
+.close-button img {
+  width: 24px; /* Kích thước của biểu tượng SVG */
+  height: 24px; /* Kích thước của biểu tượng SVG */
+}
+
+ul li {
+  list-style: none; /* Bỏ dấu đầu dòng */
+  padding: 1rem; /* Khoảng cách cho từng mục */
+  cursor: pointer; /* Hiển thị con trỏ khi hover */
+}
+ul li:hover {
+  background-color: #E8E8E8; /* Màu nền khi hover */
+  border-radius: 1rem; /* Bo góc cho mục hover */
+}
+
+/* icon */
+.icon {
+  width: 24px; /* Kích thước biểu tượng */
+  height: 24px; /* Kích thước biểu tượng */
+}
+.icon.closed {
+  transform: rotate(180deg); /* Xoay biểu tượng khi sidebar đóng */
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  /* Làm sidebar hẹp hơn trên màn hình nhỏ */
+  .sidebar.open {
+    width: 200px; /* Đặt độ rộng cho sidebar mở trên màn hình nhỏ */
+  }
+
+  .sidebar.closed {
+    transform: translateX(-200px); /* Đưa sidebar ra khỏi màn hình trên màn hình nhỏ */
+  }
+}
+
+
+
+/* Sidebar.css */
+.sidebar {
+  position: fixed; /* Đặt sidebar cố định */
+  display: flex; /* Sử dụng Flexbox để bố trí */
+  flex-direction: column; /* Đặt hướng chính là cột */
+  top: 0; /* Căn lên phía trên cùng */
+  left: 0; /* Căn sang bên trái */
+  padding: 20px; /* Thêm padding cho sidebar */
+  height: 100vh; /* Chiều cao 100% viewport */
+  width: 250px; /* Độ rộng của sidebar */
+  background-color: #D3D3D3; /* Màu nền của sidebar */
+  color: black; /* Màu chữ */
+  transition: transform 0.3s ease, width 0.3s ease; /* Hiệu ứng chuyển động */
+  overflow-y: auto; /* Cho phép cuộn dọc nếu nội dung vượt quá chiều cao */
+}
+.sidebar-header {
+  display: flex; /* Sử dụng Flexbox cho tiêu đề và nút */
+  justify-content: space-between; /* Khoảng cách giữa tiêu đề và nút */
+  align-items: center; /* Căn giữa theo chiều dọc */
+  margin-bottom: 20px; /* Khoảng cách dưới tiêu đề */
+}
+.sidebar.closed {
+  transform: translateX(-100%); /* Đưa sidebar ra khỏi màn hình */
+}
+.sidebar.open {
+  transform: translateX(0); /* Hiển thị sidebar */
+}
+.sidebar input, 
+.sidebar select {
+  width: 100%; /* Đặt chiều rộng là 100% cho các input và select */
+  padding: 0.5rem; /* Padding cho các ô nhập */
+  margin-bottom: 10px; /* Khoảng cách dưới cho các ô nhập */
+  border: 1px solid #ccc; /* Đường viền cho ô nhập */
+  border-radius: 8px; /* Bo góc cho ô nhập */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Bóng mờ nhẹ */
+}
+.sidebar button {
+  padding: 0.5rem 1rem; /* Padding cho các nút */
+  border: none; /* Không có đường viền */
+  border-radius: 4px; /* Bo góc cho nút */
+  cursor: pointer; /* Đổi con trỏ khi di chuột qua */
+  margin-top: 10px; /* Khoảng cách trên cho nút */
+  /* background-color: #4caf50; Màu nền cho nút */
+  color: white; /* Màu chữ cho nút */
+}
+.sidebar .input-group {
+  border: 1px solid #ccc; /* Đường viền cho nhóm ô nhập */
+  border-radius: 8px; /* Bo góc cho nhóm ô nhập */
+  padding: 10px; /* Thêm padding cho nhóm ô nhập */
+  margin-bottom: 20px; /* Khoảng cách dưới cho nhóm ô nhập */
+  border-color: black;
+}
+
+/* input-group-inline */
+.input-group-inline {
+  display: flex; /* Sử dụng Flexbox để căn giữa các phần tử */
+  align-items: center; /* Căn giữa theo chiều dọc */
+}
+.input-group-inline .select-search-type,
+.input-group-inline .search-button {
+  flex: 1; /* Cho phép các phần tử mở rộng để chiếm không gian bằng nhau */
+  padding: 4px; /* Padding cho cả dropdown và button */
+  margin: 4px;
+  border: 1px solid grey; /* Đường viền cho cả dropdown và button */
+  border-radius: 4px; /* Bo góc cho cả dropdown và button */
+  color: black; /* Màu chữ cho dropdown và button */
+}
+.input-group-inline .search-button {
+  color: black; /* Màu chữ cho nút Search */
+  cursor: pointer; /* Đổi con trỏ khi di chuột qua */
+  background-color: #A9A9A9;
+}
+.input-group-inline .search-button:hover{
+  background-color: #E8E8E8;
+  transition: transform 0.3s ease, background-color 0.3s ease; /* Hiệu ứng chuyển động */
+}
+
+.feedback-button {
+  background-color: #E8E8E8; /* Màu nền */
+  border: 1px solid red !important; /* Đường viền màu đỏ, sử dụng !important để tăng độ ưu tiên */
+  color: red !important;; /* Màu chữ đỏ */
+  padding: 0.5rem 1rem; /* Padding cho nút */
+  border-radius: 4px; /* Bo góc cho nút */
+  cursor: pointer; /* Đổi con trỏ khi di chuột qua */
+  margin-top: 10px; /* Khoảng cách trên cho nút */
+  width: 100%; /* Đặt chiều rộng là 100% */
+  font-size: 70%;
+}
+
+.download-button {
+  background-color: grey; /* Màu nền */
+  padding: 0.5rem 1rem; /* Padding cho nút */
+  border-radius: 4px; /* Bo góc cho nút */
+  cursor: pointer; /* Đổi con trỏ khi di chuột qua */
+  margin-top: 10px; /* Khoảng cách trên cho nút */
+  width: 100%; /* Đặt chiều rộng là 100% */
+  font-size: 70%;
+  color: black !important;
+  border: 1px solid black !important;
+}
+
+
+
